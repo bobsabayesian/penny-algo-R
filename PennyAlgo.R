@@ -1,8 +1,16 @@
 # Install the quantmod & TTR packages to get quote data
 #install.packages("quantmod")
 #install.packages("TTR")
+
+
+#now 2 packages to create the SQL tables:
+install.packages("SQLite")
+install.packages("sqldf")
+
 library("quantmod")
 library(TTR)
+library("SQLite")
+library("sqldf")
 
 # Contants
 MAX_STOCKS <- 25
@@ -10,7 +18,7 @@ MAX_PRICE <- 0.05
 FREQ = 60
 
 # Not sure how to access the local csv file, there must be a better way than this...
-setwd("R:\\Documents\\GitHub\\penny-algo-R")
+#setwd("R:\\Documents\\GitHub\\penny-algo-R")
 
 # Read the universe of penny stocks
 # Need to figure out how/where to just grab this from the www
