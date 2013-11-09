@@ -1,6 +1,8 @@
-# Install the quantmod package to get quote data
+# Install the quantmod & TTR packages to get quote data
 #install.packages("quantmod")
+#install.packages("TTR")
 library("quantmod")
+library(TTR)
 
 # Contants
 MAX_STOCKS <- 25
@@ -13,6 +15,9 @@ setwd("R:\\Documents\\GitHub\\penny-algo-R")
 # Read the universe of penny stocks
 # Need to figure out how/where to just grab this from the www
 universe <- read.csv("PennyList.csv",nrows=100,header=F,col.names="ticker")
+
+#here's a way to get from WWW:
+stocks <- subset(TTR::stockSymbols(),LastSale < MAX_PRICE)
 
 # Get current prices
 universe["price"] <- array(NA,2)
